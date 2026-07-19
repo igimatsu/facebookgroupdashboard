@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <title>FB Group Manager</title>
+  <style>
+    body {
+      width: 260px;
+      margin: 0;
+      padding: 16px;
+      font-family: system-ui, -apple-system, sans-serif;
+      color: #1c1e21;
+    }
+    h1 {
+      font-size: 15px;
+      margin: 0 0 12px;
+    }
+    .stat {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      padding: 6px 0;
+      border-bottom: 1px solid #eee;
+    }
+    .stat strong { color: #1877f2; }
+    button {
+      width: 100%;
+      margin-top: 14px;
+      padding: 8px;
+      background: #1877f2;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    button:hover { background: #145dc4; }
+  </style>
+</head>
+<body>
+  <h1>FB Group Manager</h1>
+  <div class="stat"><span>Produk siap post</span><strong id="stat-products">–</strong></div>
+  <div class="stat"><span>Grup tersedia</span><strong id="stat-groups">–</strong></div>
+  <button id="open-sidepanel">Buka Side Panel</button>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

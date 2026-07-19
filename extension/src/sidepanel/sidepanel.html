@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <title>FB Group Manager — Side Panel</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 16px;
+      font-family: system-ui, -apple-system, sans-serif;
+      color: #1c1e21;
+    }
+    h1 { font-size: 16px; margin: 0 0 4px; }
+    p.sub { font-size: 12px; color: #65676b; margin: 0 0 16px; }
+    nav {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid #eee;
+    }
+    nav button {
+      background: none;
+      border: none;
+      padding: 8px 10px;
+      font-size: 13px;
+      cursor: pointer;
+      color: #65676b;
+      border-bottom: 2px solid transparent;
+    }
+    nav button.active {
+      color: #1877f2;
+      border-bottom-color: #1877f2;
+      font-weight: 600;
+    }
+    section { display: none; font-size: 13px; }
+    section.active { display: block; }
+    #status { font-size: 12px; color: #65676b; margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>FB Group Manager</h1>
+  <p class="sub">Kerja utama: produk, grup, dan posting sequencer.</p>
+
+  <nav>
+    <button class="tab-btn active" data-tab="groups">Grup</button>
+    <button class="tab-btn" data-tab="products">Produk</button>
+    <button class="tab-btn" data-tab="batches">Posting</button>
+  </nav>
+
+  <section id="tab-groups" class="active">
+    <p id="groups-sync-info">Belum ada grup ter-sinkron. Buka
+    <code>facebook.com/groups/joins</code> di tab Facebook yang sudah login
+    untuk deteksi otomatis.</p>
+    <div id="groups-list"></div>
+  </section>
+  <section id="tab-products">
+    <form id="product-form">
+      <label>Nama produk<br />
+        <input type="text" id="product-name" required style="width:100%; box-sizing:border-box;" />
+      </label>
+      <br /><br />
+      <label>Deskripsi<br />
+        <textarea id="product-description" rows="2" style="width:100%; box-sizing:border-box;"></textarea>
+      </label>
+      <br /><br />
+      <label>Foto (bisa pilih beberapa)<br />
+        <input type="file" id="product-photos" accept="image/*" multiple />
+      </label>
+      <br /><br />
+      <label>Variasi caption (1-3, satu per baris di textarea terpisah)</label>
+      <div id="caption-inputs">
+        <textarea class="caption-input" rows="2" placeholder="Caption versi 1" style="width:100%; box-sizing:border-box; margin-top:6px;"></textarea>
+      </div>
+      <button type="button" id="add-caption" style="background:#e4e6eb; color:#1c1e21;">+ Tambah variasi caption</button>
+      <br /><br />
+      <button type="submit">Simpan produk</button>
+      <p id="product-form-status" style="color:#65676b;"></p>
+    </form>
+    <hr />
+    <div id="products-list"></div>
+  </section>
+  <section id="tab-batches">
+    <p>Posting sequencer menyusul di Phase 5 — setiap langkah tetap butuh aksi
+    manual kamu (lihat Non-Goals di BLUEPRINT.md).</p>
+  </section>
+
+  <div id="status">Supabase: belum terkoneksi.</div>
+
+  <script type="module" src="sidepanel.js"></script>
+</body>
+</html>
